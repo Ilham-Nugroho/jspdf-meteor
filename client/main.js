@@ -4,24 +4,6 @@ import { jsPDF } from "jspdf";
 
 import "./main.html";
 
-// Template.hello.onCreated(function helloOnCreated() {
-//   // counter starts at 0
-//   this.counter = new ReactiveVar(0);
-// });
-
-// Template.hello.helpers({
-//   counter() {
-//     return Template.instance().counter.get();
-//   },
-// });
-
-// Template.hello.events({
-//   'click button'(event, instance) {
-//     // increment the counter when button is clicked
-//     instance.counter.set(instance.counter.get() + 1);
-//   },
-// });
-
 if (Meteor.isClient) {
   Template.pdfreport.events({
     "click .button": function () {
@@ -178,9 +160,6 @@ if (Meteor.isClient) {
           format: "a4",
           unit: "mm",
         });
-        // margin = 30;
-
-        // Only pt supported (not mm or in)
 
         doc.setFontSize(16);
         doc.text(57, 20, "Laporan API Management Gateway");
@@ -191,7 +170,7 @@ if (Meteor.isClient) {
           35,
           "Tanggal" + "              " + ": Kamis, 15 Juni 2021"
         );
-        // doc.setFontSize(10);
+
         doc.text(30, 41, "Data Laporan     : 14 Juni 2021 - 15 Juni 2021");
 
         doc.setFontSize(11);
@@ -215,7 +194,7 @@ if (Meteor.isClient) {
         doc.text(35, 115, "1." + "   " + "Service Telkom");
 
         doc.text(35, 125, "   " + "   " + "End Point Request");
-        // 23, 130,
+
         doc.table(23, 130, endpoint_datas, endpoint_headers, {
           fontSize: 10,
         });
